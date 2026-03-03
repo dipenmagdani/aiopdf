@@ -1,7 +1,8 @@
-import { useCallback, useState } from 'react';
-import { cn } from '@/lib/utils';
-import { Upload, FileText } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useCallback, useState } from "react";
+import { cn } from "@/lib/utils";
+import { Upload, FileText } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { dropzoneVariants } from "@/lib/motion";
 
 interface UploadDropzoneProps {
   accept?: string;
@@ -13,11 +14,11 @@ interface UploadDropzoneProps {
 }
 
 export function UploadDropzone({
-  accept = '.pdf',
+  accept = ".pdf",
   multiple = false,
   onFiles,
-  label = 'Drop your PDF here',
-  sublabel = 'or click to browse',
+  label = "Drop your PDF here",
+  sublabel = "or click to browse",
   className,
 }: UploadDropzoneProps) {
   const [dragOver, setDragOver] = useState(false);
@@ -41,18 +42,22 @@ export function UploadDropzone({
   );
 
   return (
-    <label
-      onDragOver={(e) => {
+    <motion.label
+      variants={dropzoneVariants}
+      initial="idle"
+      animate={dragOver ? "dragActive" : "idle"}
+      whileHover="hover"
+      onDragOver={(e: any) => {
         e.preventDefault();
         setDragOver(true);
       }}
       onDragLeave={() => setDragOver(false)}
       onDrop={handleDrop}
       className={cn(
-        'relative flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed p-12 cursor-pointer transition-all duration-300',
+        "relative flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed p-12 cursor-pointer transition-colors duration-300",
         dragOver
-          ? 'border-[hsl(var(--editor-accent))] bg-[hsl(var(--editor-accent)/0.05)]'
-          : 'border-border hover:border-muted-foreground/40 hover:bg-muted/30',
+          ? "shimmer-gradient border-primary bg-primary/5"
+          : "border-border hover:bg-muted/30 hover:shadow-[var(--depth-1)]",
         className
       )}
     >
@@ -65,7 +70,7 @@ export function UploadDropzone({
       />
       <AnimatePresence mode="wait">
         <motion.div
-          key={dragOver ? 'drag' : 'idle'}
+          key={dragOver ? "drag" : "idle"}
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -82,6 +87,6 @@ export function UploadDropzone({
           </div>
         </motion.div>
       </AnimatePresence>
-    </label>
+    </motion.label>
   );
 }

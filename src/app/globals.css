@@ -63,6 +63,21 @@
     --gradient-start: 217 91% 60%;
     --gradient-end: 262 83% 58%;
     --tool-card-glow: 217 91% 60% / 0.15;
+
+    /* Motion Tokens */
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-page: 400ms;
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-out-dominant: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Depth Levels */
+    --depth-1: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --depth-2: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --depth-3: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --depth-4: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
   .dark {
@@ -176,6 +191,29 @@
   }
   .dark .glow-card:hover {
     box-shadow: 0 0 30px -4px hsl(var(--tool-card-glow));
+  }
+
+  .shimmer-gradient {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-gradient::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(var(--background), 0.2) 50%,
+      transparent 100%
+    );
+    animation: shimmer 2s infinite linear;
+    pointer-events: none;
+  }
+  @keyframes shimmer {
+    to {
+      transform: translateX(100%);
+    }
   }
 
   .grain-bg {

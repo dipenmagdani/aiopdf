@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { cardHoverVariants } from "@/lib/motion";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import type { ToolConfig } from "@/lib/toolsConfig";
@@ -14,9 +15,11 @@ export function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link href={tool.route}>
       <motion.div
-        whileHover={{ y: -6, scale: 1.02 }}
-        transition={{ duration: 0.2 }}
-        className="glow-card glass-panel rounded-2xl p-6 flex flex-col gap-4 cursor-pointer group relative overflow-hidden bg-background/40 hover:bg-background/80"
+        variants={cardHoverVariants}
+        initial="idle"
+        whileHover="hover"
+        whileTap="tap"
+        className="glass-panel rounded-2xl p-6 flex flex-col gap-4 cursor-pointer group relative overflow-hidden bg-background/40 hover:bg-background/80 hover:shadow-[var(--depth-2)] transition-colors duration-300"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
