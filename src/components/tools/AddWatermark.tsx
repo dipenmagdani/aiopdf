@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
 import { Download } from 'lucide-react';
 
-const tool = getToolBySlug('watermark')!;
+const tool = getToolBySlug('watermark-pdf')!;
 
 export default function AddWatermark() {
   const { files, addFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

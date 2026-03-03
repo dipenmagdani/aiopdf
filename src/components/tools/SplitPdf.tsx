@@ -9,7 +9,7 @@ import { splitDocument, parseRanges } from '@/lib/engines/splitEngine';
 import { Input } from '@/components/ui/input';
 import { Download } from 'lucide-react';
 
-const tool = getToolBySlug('split')!;
+const tool = getToolBySlug('split-pdf')!;
 
 export default function SplitPdf() {
   const { files, addFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

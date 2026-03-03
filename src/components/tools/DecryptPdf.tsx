@@ -9,7 +9,7 @@ import { decryptPdf } from '@/lib/engines/securityEngine';
 import { Input } from '@/components/ui/input';
 import { Download, Unlock } from 'lucide-react';
 
-const tool = getToolBySlug('decrypt')!;
+const tool = getToolBySlug('decrypt-pdf')!;
 
 export default function DecryptPdf() {
   const { files, addFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

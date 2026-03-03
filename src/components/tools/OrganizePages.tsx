@@ -8,7 +8,7 @@ import { getToolBySlug } from '@/lib/toolsConfig';
 import { organizePages } from '@/lib/engines/organizeEngine';
 import { Download } from 'lucide-react';
 
-const tool = getToolBySlug('organize')!;
+const tool = getToolBySlug('organize-pdf')!;
 
 export default function OrganizePages() {
   const { files, addFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

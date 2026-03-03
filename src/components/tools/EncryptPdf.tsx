@@ -9,7 +9,7 @@ import { encryptPdf } from '@/lib/engines/securityEngine';
 import { Input } from '@/components/ui/input';
 import { Download, Shield } from 'lucide-react';
 
-const tool = getToolBySlug('encrypt')!;
+const tool = getToolBySlug('encrypt-pdf')!;
 
 export default function EncryptPdf() {
   const { files, addFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

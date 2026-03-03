@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "find-keywords": {
+      "source": "calm-north/seojuice-skills",
+      "sourceType": "github",
+      "computedHash": "57ee45205794397994320374741794bf8863419ec92e549fa56279ef871b8e53"
+    },
     "next-best-practices": {
       "source": "vercel-labs/next-skills",
       "sourceType": "github",
@@ -10,6 +15,16 @@
       "source": "fernandofuc/nextjs-claude-setup",
       "sourceType": "github",
       "computedHash": "a272b9e46ff9510aacf7d7ebb34fe6fffdf918140ee55a503e20bca5184061a3"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "27156d103697411bba81520fef469e77bfba4c65d904c841e4965a158d531fbd"
+    },
+    "seo-geo": {
+      "source": "resciencelab/opc-skills",
+      "sourceType": "github",
+      "computedHash": "56f90ba46b36563bb5461feb8462aed9283e74dfc4cdac2a98c42c4bc86a95be"
     },
     "sequential-thinking": {
       "source": "mrgoonie/claudekit-skills",

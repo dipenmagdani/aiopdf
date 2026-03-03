@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FileText } from "lucide-react";
 import { toolsConfig } from "@/lib/toolsConfig";
 import { RelativeTime } from "@/components/ui/relative-time";
-
+import { Suspense } from "react";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/20 py-12">
@@ -18,13 +18,16 @@ export function Footer() {
               </div>
               <span className="font-mono">AIOpdf</span>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              Professional PDF tools that run entirely in your browser.
+            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+              Professional PDF tools that run entirely in your browser. Zero
+              uploads, maximum privacy.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-3 text-sm">Tools</h4>
+            <h4 className="font-semibold mb-3 text-sm tracking-wider uppercase text-foreground/80">
+              Tools
+            </h4>
             <ul className="space-y-2">
               {toolsConfig.slice(0, 5).map((t) => (
                 <li key={t.id}>
@@ -40,7 +43,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-3 text-sm">More Tools</h4>
+            <h4 className="font-semibold mb-3 text-sm tracking-wider uppercase text-foreground/80">
+              More Tools
+            </h4>
             <ul className="space-y-2">
               {toolsConfig.slice(5).map((t) => (
                 <li key={t.id}>
@@ -56,7 +61,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-3 text-sm">Product</h4>
+            <h4 className="font-semibold mb-3 text-sm tracking-wider uppercase text-foreground/80">
+              Product
+            </h4>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -69,25 +76,21 @@ export function Footer() {
               <li>
                 <Link
                   href="/tools"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-1 inline-block transition-all"
                 >
                   All Tools
                 </Link>
-              </li>
-              <li>
-                <a
-                  href="#pricing"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Pricing
-                </a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          © {RelativeTime()} AIOpdf. All rights reserved.
+          ©{" "}
+          <Suspense fallback={<span>2026</span>}>
+            <RelativeTime />
+          </Suspense>{" "}
+          AIOpdf. All rights reserved.
         </div>
       </div>
     </footer>

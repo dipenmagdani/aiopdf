@@ -8,7 +8,7 @@ import { getToolBySlug } from '@/lib/toolsConfig';
 import { mergeDocuments } from '@/lib/engines/mergeEngine';
 import { X, GripVertical, Download } from 'lucide-react';
 
-const tool = getToolBySlug('merge')!;
+const tool = getToolBySlug('merge-pdf')!;
 
 export default function MergePdf() {
   const { files, addFiles, removeFile, reorderFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

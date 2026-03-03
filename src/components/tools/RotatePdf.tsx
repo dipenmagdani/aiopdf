@@ -8,7 +8,7 @@ import { getToolBySlug } from '@/lib/toolsConfig';
 import { rotatePages } from '@/lib/engines/rotateEngine';
 import { RotateCw, Download } from 'lucide-react';
 
-const tool = getToolBySlug('rotate')!;
+const tool = getToolBySlug('rotate-pdf')!;
 
 export default function RotatePdf() {
   const { files, addFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

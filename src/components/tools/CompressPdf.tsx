@@ -9,7 +9,7 @@ import { compressPdf } from '@/lib/engines/compressEngine';
 import { Slider } from '@/components/ui/slider';
 import { Download } from 'lucide-react';
 
-const tool = getToolBySlug('compress')!;
+const tool = getToolBySlug('compress-pdf')!;
 
 export default function CompressPdf() {
   const { files, addFiles, processing, resultBlob, currentStep, setProcessing, setResult, setError } = useToolStore();

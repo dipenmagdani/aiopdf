@@ -14,34 +14,42 @@ export function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link href={tool.route}>
       <motion.div
-        whileHover={{ y: -4 }}
-        className="glow-card glass-panel rounded-xl p-5 flex flex-col gap-3 cursor-pointer group relative overflow-hidden"
+        whileHover={{ y: -6, scale: 1.02 }}
+        transition={{ duration: 0.2 }}
+        className="glow-card glass-panel rounded-2xl p-6 flex flex-col gap-4 cursor-pointer group relative overflow-hidden bg-background/40 hover:bg-background/80"
       >
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
         <div
           className={cn(
-            "inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br",
+            "inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br shadow-sm group-hover:shadow-md transition-shadow",
             tool.color
           )}
         >
-          <Icon className="h-5 w-5 text-white" />
+          <Icon className="h-6 w-6 text-white transform group-hover:scale-110 transition-transform duration-300" />
         </div>
-        <div>
-          <div className="flex items-center gap-2">
-            <h3 className="font-semibold text-foreground">{tool.name}</h3>
+        <div className="z-10">
+          <div className="flex items-center gap-2 mb-1">
+            <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
+              {tool.name}
+            </h3>
             {tool.tier === "pro" && (
               <Badge
                 variant="secondary"
-                className="text-[10px] px-1.5 py-0 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))] text-white border-0"
+                className="text-[10px] px-2 py-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600 text-white border-0 shadow-sm shadow-emerald-500/20"
               >
                 PRO
               </Badge>
             )}
           </div>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {tool.description}
           </p>
         </div>
-        <Badge variant="outline" className="w-fit text-[10px]">
+        <Badge
+          variant="outline"
+          className="w-fit text-xs px-2 py-0.5 mt-auto z-10 bg-background/50 backdrop-blur-sm group-hover:border-primary/30 transition-colors"
+        >
           {tool.category}
         </Badge>
       </motion.div>
