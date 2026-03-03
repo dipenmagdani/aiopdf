@@ -1,3 +1,4 @@
+"use client";
 import { Navbar } from '@/components/shared/Navbar';
 import { HeroSection } from '@/components/landing/HeroSection';
 import { ToolsGrid } from '@/components/landing/ToolsGrid';

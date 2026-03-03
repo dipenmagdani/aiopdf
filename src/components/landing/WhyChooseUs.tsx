@@ -1,27 +1,31 @@
-import { motion } from 'framer-motion';
-import { Shield, Zap, DollarSign, Palette } from 'lucide-react';
-import { GlassPanel } from '@/components/shared/GlassPanel';
+import { motion } from "framer-motion";
+import { Shield, Zap, DollarSign, Palette } from "lucide-react";
+import { GlassPanel } from "@/components/shared/GlassPanel";
 
 const features = [
   {
     icon: Shield,
-    title: 'Fully Private',
-    description: 'Your files are processed 100% in your browser. Nothing is uploaded to any server.',
+    title: "Fully Private",
+    description:
+      "Your files are processed 100% in your browser. Nothing is uploaded to any server.",
   },
   {
     icon: Zap,
-    title: 'Lightning Fast',
-    description: 'No server round-trips. Everything happens instantly on your device.',
+    title: "Lightning Fast",
+    description:
+      "No server round-trips. Everything happens instantly on your device.",
   },
   {
     icon: DollarSign,
-    title: 'Free to Use',
-    description: 'Core tools are completely free. No hidden charges or watermarks.',
+    title: "Free to Use",
+    description:
+      "Core tools are completely free. No hidden charges or watermarks.",
   },
   {
     icon: Palette,
-    title: 'Modern Experience',
-    description: 'A beautiful, intuitive interface that feels like a premium native app.',
+    title: "Modern Experience",
+    description:
+      "A beautiful, intuitive interface that feels like a premium native app.",
   },
 ];
 
@@ -35,8 +39,12 @@ export function WhyChooseUs() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Why Choose PDFCraft</h2>
-          <p className="text-muted-foreground">Built for speed, privacy, and simplicity.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Why Choose AIOpdf
+          </h2>
+          <p className="text-muted-foreground">
+            Built for speed, privacy, and simplicity.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

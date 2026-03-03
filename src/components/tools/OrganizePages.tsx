@@ -1,3 +1,4 @@
+"use client";
 import { useCallback } from 'react';
 import { ToolLayoutWrapper } from '@/components/shared/ToolLayoutWrapper';
 import { UploadDropzone } from '@/components/shared/UploadDropzone';

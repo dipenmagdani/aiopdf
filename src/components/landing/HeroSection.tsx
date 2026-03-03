@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { PremiumButton } from '@/components/shared/PremiumButton';
-import { GlassPanel } from '@/components/shared/GlassPanel';
-import { FileText, ArrowRight } from 'lucide-react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { PremiumButton } from "@/components/shared/PremiumButton";
+import { GlassPanel } from "@/components/shared/GlassPanel";
+import { FileText, ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -29,7 +29,7 @@ export function HeroSection() {
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]">
-            Your PDFs.{' '}
+            Your PDFs.{" "}
             <span className="bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))] bg-clip-text text-transparent">
               Your Browser.
             </span>
@@ -38,7 +38,9 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-            Edit, merge, split, compress, and transform your PDFs — all processed locally in your browser. Your files never leave your device.
+            Edit, merge, split, compress, and transform your PDFs — all
+            processed locally in your browser. Your files never leave your
+            device.
           </p>
         </motion.div>
 
@@ -48,13 +50,13 @@ export function HeroSection() {
           transition={{ delay: 0.4 }}
           className="flex flex-wrap gap-4 justify-center"
         >
-          <Link to="/editor">
+          <Link href="/editor">
             <PremiumButton size="lg">
               <FileText className="h-5 w-5" />
               Edit PDF
             </PremiumButton>
           </Link>
-          <Link to="/tools">
+          <Link href="/tools">
             <PremiumButton variant="secondary" size="lg">
               Explore Tools
               <ArrowRight className="h-4 w-4" />
