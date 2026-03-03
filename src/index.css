@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 16% 96%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 90%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 220 14% 93%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 16% 94%;
+    --sidebar-foreground: 220 10% 30%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 90%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 13% 87%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Custom editor tokens */
+    --editor-bg: 220 20% 11%;
+    --editor-surface: 220 18% 14%;
+    --editor-surface-hover: 220 16% 18%;
+    --editor-border: 220 14% 22%;
+    --editor-text: 220 10% 85%;
+    --editor-text-muted: 220 10% 50%;
+    --editor-accent: 217 91% 60%;
+    --editor-accent-glow: 217 91% 70%;
+    --editor-toolbar: 220 18% 16%;
+    --editor-thumb: 220 14% 26%;
+    --editor-canvas: 220 20% 8%;
+
+    /* Glass & gradient tokens */
+    --glass-bg: 220 20% 14% / 0.6;
+    --glass-border: 220 14% 30% / 0.3;
+    --gradient-start: 217 91% 60%;
+    --gradient-end: 262 83% 58%;
+    --tool-card-glow: 217 91% 60% / 0.15;
+  }
+
+  .dark {
+    --background: 220 20% 11%;
+    --foreground: 220 10% 90%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 220 10% 90%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 220 10% 90%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 16% 18%;
+    --secondary-foreground: 220 10% 90%;
+
+    --muted: 220 14% 22%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 22%;
+    --input: 220 14% 22%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 220 18% 14%;
+    --sidebar-foreground: 220 10% 85%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 16% 18%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 14% 22%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-mono-editor {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .editor-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .editor-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .editor-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--editor-thumb));
+    border-radius: 3px;
+  }
+
+  .editor-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--editor-accent));
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px -4px hsl(var(--editor-accent) / 0.3);
+  }
+
+  .text-node-hover {
+    outline: 1px solid hsl(var(--editor-accent) / 0.4);
+    background: hsl(var(--editor-accent) / 0.06);
+  }
+
+  .text-node-selected {
+    outline: 2px solid hsl(var(--editor-accent));
+    background: hsl(var(--editor-accent) / 0.1);
+  }
+
+  .glass-panel {
+    background: hsl(var(--card));
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  }
+
+  .dark .glass-panel {
+    background: hsla(var(--glass-bg));
+    border: 1px solid hsla(var(--glass-border));
+    box-shadow: none;
+  }
+
+  .glow-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .glow-card:hover {
+    box-shadow: 0 8px 30px -8px hsl(var(--primary) / 0.15), 0 4px 12px -4px rgb(0 0 0 / 0.08);
+    transform: scale(1.02);
+  }
+  .dark .glow-card:hover {
+    box-shadow: 0 0 30px -4px hsl(var(--tool-card-glow));
+  }
+
+  .grain-bg {
+    position: relative;
+  }
+  .grain-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+}
